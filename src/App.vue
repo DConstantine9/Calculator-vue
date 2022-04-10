@@ -20,7 +20,7 @@
 export default {
 data() {
   return {
-    buttons: ["C", "*", "/", "-", 1, 2, 3, "+", 4, 5, 6, "%", 7, 8, 9, "=", 0, "."],
+    buttons: ["C", "%", "/", "*", 1, 2, 3,"-", 4, 5, 6, "+", 7, 8, 9, "=", 0, "."],
     calcValue: "",
     operator: "",
     prevValue: ""
@@ -40,14 +40,13 @@ methods: {
 
     if (value === "%") {
       this.calcValue = this.calcValue / 100 + ""
-    }
+    } 
 
-    if (["/", "*", "-", "+"].includes(value)) {
+    if (["/", "*", "-", "+",].includes(value)) {
       this.operator = value
       this.prevValue = this.calcValue
       this.calcValue = ""
     }
-  
 
     if (value === "=") {
       this.calcValue = eval(
@@ -64,21 +63,24 @@ methods: {
 
 <style>
 body {
-  background: rgba(0, 0, 0, 0.893);
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  box-sizing: border-box;
 }
 .calculator {
-  border: 2px solid white;
-  width: 400px;
-  height: 600px;
+  
+  width: 320px;
+  min-height: 600px;
   padding: 10px;
+  background: #000;
+  color: white;
 }
 
 .screen {
-  border: 2px solid white;
+  
   height: 150px;
   font-size: 35px;
   display: flex;
@@ -92,18 +94,19 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
+  
 }
 
 .button {
-  color: white;
-  border: 2px solid white;
   font-size: 60px;
   width: 80px;
   height: 80px;  
-  margin: 0 10px 10px 0;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  background: transparent;
+}
+
+.button:hover {
+   background-color: #333333;
 }
 </style>
